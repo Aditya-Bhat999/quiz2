@@ -337,3 +337,37 @@ document.addEventListener('DOMContentLoaded', loadQuizData);
 
 // Export quiz data for external use (if needed)
 window.quizData = quizData; 
+
+// Prevent copy/cut/paste, text selection shortcuts, and right-click
+(function () {
+    document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+    });
+
+    ['copy', 'cut', 'paste'].forEach(function (evt) {
+        document.addEventListener(evt, function (e) {
+            e.preventDefault();
+        });
+    });
+
+    document.addEventListener('keydown', function (e) {
+        const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+        const ctrlOrCmd = isMac ? e.metaKey : e.ctrlKey;
+        if (ctrlOrCmd) {
+            // Block common shortcuts: A, C, X, V, S, P, U, Shift+I/J/C (devtools), plus F12
+            const key = e.key.toLowerCase();
+            const blocked = ['a', 'c', 'x', 'v', 's', 'p', 'u'];
+            if (blocked.includes(key)) {
+                e.preventDefault();
+                return;
+            }
+            if (e.shiftKey && ['i', 'j', 'c'].includes(key)) {
+                e.preventDefault();
+                return;
+            }
+        }
+        if (e.key === 'F12') {
+            e.preventDefault();
+        }
+    });
+})(); 

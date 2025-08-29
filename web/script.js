@@ -1,6 +1,6 @@
 // Quiz configuration
 const QUIZ_CONFIG = {
-    timerDuration: 5, // Global timer duration in seconds - change this value to modify all timers
+    timerDuration: 8, // Global timer duration in seconds - change this value to modify all timers
     totalQuestions: 10,
     marksPerQuestion: 10
 };
@@ -353,26 +353,7 @@ function showCompleteSlide() {
     }
 }
 
-// Restart quiz
-function restartQuiz() {
-    // Clear all timers
-    Object.values(timerIntervals).forEach(interval => {
-        clearInterval(interval);
-    });
-    timerIntervals = {};
-    
-    // Clear answer selection timeout
-    if (answerSelectionTimeout) {
-        clearTimeout(answerSelectionTimeout);
-        answerSelectionTimeout = null;
-    }
-    
-    // Reset current slide
-    currentSlide = 0;
-    
-    // Show welcome slide
-    initQuiz();
-}
+
 
 // Initialize quiz when page loads (show landing slide without loading data yet)
 document.addEventListener('DOMContentLoaded', () => {

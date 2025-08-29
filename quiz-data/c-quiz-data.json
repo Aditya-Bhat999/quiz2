@@ -1,0 +1,27 @@
+[
+  {
+    "question": "Which of the following operators cannot be overloaded in C?",
+    "answers": ["+", "=", "sizeof", "%"],
+    "correctAnswer": 2
+  },
+  {
+    "question": "In C, what is the default storage class for local variables?",
+    "answers": ["static", "register", "auto", "extern"],
+    "correctAnswer": 2
+  },
+  {
+    "question": "Which of the following statements about pointers in C is TRUE?",
+    "answers": ["A NULL pointer points to a valid memory location.", "Pointer arithmetic depends on the size of the data type.", "Pointer variables can hold any type of value.", "You can perform multiplication on pointers directly."],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Which of the following functions is used to dynamically allocate memory in C?",
+    "answers": ["calloc()", "free()", "delete()", "dealloc()"],
+    "correctAnswer": 0
+  },
+  {
+    "question": "Which of the following is TRUE about const keyword in C?",
+    "answers": ["It makes a variable global.", "It prevents modification of the variable's value after initialization.", "It allocates memory in ROM.", "It makes the variable volatile."],
+    "correctAnswer": 1
+  }
+]

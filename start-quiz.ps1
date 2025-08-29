@@ -25,7 +25,7 @@ Start-Process -FilePath $py.Source -ArgumentList $serverArgs -WorkingDirectory $
 Start-Sleep -Seconds 1
 
 # Open the quiz in the default browser
-Start-Process "http://localhost:$Port/index.html"
+Start-Process "http://localhost:$Port/web/index.html"
 
-Write-Host "Quiz started at http://localhost:$Port/index.html"
+Write-Host "Quiz started at http://localhost:$Port/web/index.html"
 Write-Host "To stop the server, close the Python window that opened." 

@@ -1,0 +1,27 @@
+[
+  {
+    "question": "Which of the following is an example of social engineering in cybersecurity?",
+    "answers": ["SQL Injection", "Phishing Email", "Denial of Service (DoS)", "Man-in-the-Middle Attack"],
+    "correctAnswer": 1
+  },
+  {
+    "question": "A strong password should ideally include:",
+    "answers": ["Only alphabets", "Numbers and alphabets only", "A mix of uppercase, lowercase, numbers, and special characters", "Only special characters"],
+    "correctAnswer": 2
+  },
+  {
+    "question": "What does a firewall primarily do?",
+    "answers": ["Detects viruses in files", "Prevents unauthorized access to or from a network", "Encrypts email messages", "Recovers deleted files"],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Which cybersecurity attack involves overwhelming a system with traffic to make it unavailable?",
+    "answers": ["Ransomware Attack", "Denial of Service (DoS) Attack", "Phishing Attack", "Keylogging"],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Which of the following is a two-factor authentication (2FA) example?",
+    "answers": ["Username + Password", "Password + Security Question", "Password + One-Time Password (OTP) sent to phone", "Password only"],
+    "correctAnswer": 2
+  }
+]

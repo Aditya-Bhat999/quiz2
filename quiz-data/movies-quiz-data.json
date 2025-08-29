@@ -1,0 +1,27 @@
+[
+  {
+    "question": "Which actor played the role of the Joker in The Dark Knight (2008)?",
+    "answers": ["Jared Leto", "Joaquin Phoenix", "Heath Ledger", "Jack Nicholson"],
+    "correctAnswer": 2
+  },
+  {
+    "question": "Who directed the Bollywood movie Lagaan (2001), which was nominated for an Oscar?",
+    "answers": ["Karan Johar", "Ashutosh Gowariker", "Rajkumar Hirani", "Sanjay Leela Bhansali"],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Which movie features the famous dialogue: \"I'll be back\"?",
+    "answers": ["The Matrix", "The Terminator", "Die Hard", "RoboCop"],
+    "correctAnswer": 1
+  },
+  {
+    "question": "In Indian cinema, who is popularly known as the \"Tragedy King\"?",
+    "answers": ["Amitabh Bachchan", "Dilip Kumar", "Raj Kapoor", "Dev Anand"],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Which animated film was the first ever to be nominated for the Academy Award for Best Picture?",
+    "answers": ["Beauty and the Beast (1991)", "Toy Story (1995)", "Shrek (2001)", "The Lion King (1994)"],
+    "correctAnswer": 0
+  }
+]

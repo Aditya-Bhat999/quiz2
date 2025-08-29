@@ -1,6 +1,6 @@
 // Quiz configuration
 const QUIZ_CONFIG = {
-    timerDuration: 10, // Global timer duration in seconds - change this value to modify all timers
+    timerDuration: 5, // Global timer duration in seconds - change this value to modify all timers
     totalQuestions: 10,
     marksPerQuestion: 10
 };
@@ -14,11 +14,15 @@ let shuffledAnswers = [];
 let score = 0;
 let correctAttempts = 0;
 let wrongAttempts = 0;
+let currentTopicFile = 'quiz-data.json';
+let answerSelectionTimeout = null; // Track the timeout for answer selection
+let isAnswerSelected = false; // Flag to prevent multiple answer selections
 
 // Load quiz data from JSON file
-async function loadQuizData() {
+async function loadQuizData(topicFile = 'quiz-data.json') {
     try {
-        const response = await fetch('quiz-data.json');
+        currentTopicFile = topicFile;
+        const response = await fetch(`../quiz-data/${topicFile}`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -27,7 +31,7 @@ async function loadQuizData() {
         initQuiz();
     } catch (error) {
         console.error('Error loading quiz data:', error);
-        alert('Failed to load quiz data. Please ensure quiz-data.json file exists.');
+        alert('Failed to load quiz data. Please ensure the selected quiz JSON file exists.');
     }
 }
 
@@ -51,6 +55,13 @@ function initQuiz() {
     correctAttempts = 0;
     wrongAttempts = 0;
     
+    // Clear any existing answer selection timeout
+    if (answerSelectionTimeout) {
+        clearTimeout(answerSelectionTimeout);
+        answerSelectionTimeout = null;
+    }
+    isAnswerSelected = false;
+    
     // Shuffle answers for each question
     shuffledAnswers = quizData.map(question => {
         const answersWithIndex = question.answers.map((answer, index) => ({ answer, originalIndex: index }));
@@ -71,7 +82,10 @@ function initQuiz() {
 }
 
 // Start the quiz
-function startQuiz() {
+async function startQuiz() {
+    const select = document.getElementById('topic-select');
+    const selectedFile = select && select.value ? select.value : 'quiz-data.json';
+    await loadQuizData(selectedFile);
     currentSlide = 1;
     showSlide(currentSlide);
     startTimer(currentSlide);
@@ -136,9 +150,17 @@ function loadQuestion(slideNumber) {
 
 // Handle answer selection
 function selectAnswer(slideNumber, shuffledIndex, originalIndex) {
+    // Prevent multiple answer selections for the same question
+    if (isAnswerSelected) {
+        return;
+    }
+    
     const answersElement = document.getElementById(`answers-${slideNumber}`);
     const answerOptions = answersElement.querySelectorAll('.answer-option');
     const questionData = quizData[slideNumber - 1];
+    
+    // Set flag to prevent multiple selections
+    isAnswerSelected = true;
     
     // Remove previous selections
     answerOptions.forEach(option => {
@@ -171,8 +193,13 @@ function selectAnswer(slideNumber, shuffledIndex, originalIndex) {
         }
     }
     
+    // Clear any existing timeout
+    if (answerSelectionTimeout) {
+        clearTimeout(answerSelectionTimeout);
+    }
+    
     // Wait a moment to show the result, then auto-advance
-    setTimeout(() => {
+    answerSelectionTimeout = setTimeout(() => {
         nextSlide();
     }, 2000);
 }
@@ -233,6 +260,15 @@ function nextSlide() {
     if (timerIntervals[currentSlide]) {
         clearInterval(timerIntervals[currentSlide]);
     }
+    
+    // Clear answer selection timeout
+    if (answerSelectionTimeout) {
+        clearTimeout(answerSelectionTimeout);
+        answerSelectionTimeout = null;
+    }
+    
+    // Reset answer selection flag
+    isAnswerSelected = false;
     
     // Add fade-out effect
     const currentSlideElement = document.getElementById(`slide-${currentSlide}`);
@@ -325,6 +361,12 @@ function restartQuiz() {
     });
     timerIntervals = {};
     
+    // Clear answer selection timeout
+    if (answerSelectionTimeout) {
+        clearTimeout(answerSelectionTimeout);
+        answerSelectionTimeout = null;
+    }
+    
     // Reset current slide
     currentSlide = 0;
     
@@ -332,8 +374,10 @@ function restartQuiz() {
     initQuiz();
 }
 
-// Initialize quiz when page loads
-document.addEventListener('DOMContentLoaded', loadQuizData);
+// Initialize quiz when page loads (show landing slide without loading data yet)
+document.addEventListener('DOMContentLoaded', () => {
+    initQuiz();
+});
 
 // Export quiz data for external use (if needed)
 window.quizData = quizData; 

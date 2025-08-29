@@ -1,0 +1,27 @@
+[
+  {
+    "question": "Which of the following is NOT a type of AI?",
+    "answers": ["Narrow AI", "General AI", "Super AI", "Manual AI"],
+    "correctAnswer": 0
+  },
+  {
+    "question": "Which AI approach tries to mimic the way the human brain works?",
+    "answers": ["Expert Systems", "Neural Networks", "Genetic Algorithms", "Fuzzy Logic"],
+    "correctAnswer": 1
+  },
+  {
+    "question": "What does NLP in AI stand for?",
+    "answers": ["Natural Learning Process", "Neural Language Processing", "Natural Language Processing", "Non-Linear Programming"],
+    "correctAnswer": 2
+  },
+  {
+    "question": "Which programming language is most commonly used for AI today?",
+    "answers": ["C", "Python", "JavaScript", "PHP"],
+    "correctAnswer": 1
+  },
+  {
+    "question": "In Machine Learning, what is overfitting?",
+    "answers": ["Model performs well on both training and test data", "Model performs poorly on training data", "Model performs well on training data but poorly on test data", "Model ignores training data"],
+    "correctAnswer": 2
+  }
+] 

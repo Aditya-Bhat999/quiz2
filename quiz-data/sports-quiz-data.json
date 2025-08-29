@@ -1,0 +1,27 @@
+[
+  {
+    "question": "Who is the only athlete to win Olympic gold medals in both the 100m and the 200m in three consecutive Olympics?",
+    "answers": ["Carl Lewis", "Usain Bolt", "Jesse Owens", "Justin Gatlin"],
+    "correctAnswer": 1
+  },
+  {
+    "question": "In cricket, how many ways can a batsman be declared \"out\" according to the Laws of Cricket?",
+    "answers": ["8", "9", "10", "11"],
+    "correctAnswer": 2
+  },
+  {
+    "question": "Which country won the first ever FIFA World Cup in 1930?",
+    "answers": ["Brazil", "Germany", "Uruguay", "Argentina"],
+    "correctAnswer": 2
+  },
+  {
+    "question": "The term \"slam dunk\" is associated with which sport?",
+    "answers": ["Volleyball", "Basketball", "Rugby", "Baseball"],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Who was the first Indian to win a medal at the Olympic Games (individual event)?",
+    "answers": ["Abhinav Bindra", "Leander Paes", "Khashaba Jadhav", "Milkha Singh"],
+    "correctAnswer": 2
+  }
+]

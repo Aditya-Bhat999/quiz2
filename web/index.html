@@ -12,6 +12,16 @@
             <div class="slide-content">
                 <h1 class="title">QUIZ</h1>
                 <p class="subtitle">Test your knowledge</p>
+                <div class="topic-selector">
+                    <label for="topic-select" class="topic-label"></label>
+                    <select id="topic-select" class="topic-select" aria-label="Choose a quiz topic">
+                        <option value="quiz-data.json">Artificial Intelligence</option>
+                        <option value="c-quiz-data.json">Computer Science</option>
+                        <option value="cybersecurity-quiz-data.json">Cybersecurity</option>
+                        <option value="movies-quiz-data.json">Movies</option>
+                        <option value="sports-quiz-data.json">Sports</option>
+                    </select>
+                </div>
                 <div class="start-button" onclick="startQuiz()">Start Quiz</div>
             </div>
         </div>

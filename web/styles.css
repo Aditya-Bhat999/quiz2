@@ -63,6 +63,28 @@ body {
     line-height: 1.6;
 }
 
+.topic-selector {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+}
+
+.topic-label {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.topic-select {
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 2px solid #e9ecef;
+    background: #f8f9fa;
+    color: #2c3e50;
+    font-size: 1rem;
+}
+
 .start-button, .restart-button {
     background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;

@@ -165,6 +165,65 @@ body::before {
     backdrop-filter: blur(10px);
 }
 
+/* Logo Container */
+.logo-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+}
+
+.tech-logo {
+    width: 80px !important;
+    height: 80px !important;
+    max-width: 80px !important;
+    max-height: 80px !important;
+    border-radius: 50%;
+    box-shadow: 
+        0 8px 20px rgba(0, 0, 0, 0.5),
+        0 0 0 2px rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    object-fit: cover;
+    position: relative;
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+.slide.active .tech-logo {
+    animation: slideInLeft 0.8s ease-out 0.2s both;
+}
+
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.tech-logo::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #00ff88, #00cc6a, #00ff88);
+    border-radius: 50%;
+    z-index: -1;
+    animation: rotate 2s linear infinite;
+}
+
+.tech-logo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 255, 136, 0.3);
+    filter: drop-shadow(0 4px 8px rgba(0, 255, 136, 0.4));
+}
+
 
 
 .slide {
